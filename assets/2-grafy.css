@@ -1,0 +1,21 @@
+/* Global font style */
+body {
+    font-family: 'Calibri', sans-serif; /* You can change 'Arial' to your preferred font */
+}
+
+/* Specific font styles */
+h1 {
+    font-family: 'Georgia', serif; /* Apply a different font to H1 elements */
+}
+
+label {
+    font-family: 'Verdana', sans-serif; /* Apply a different font to label elements */
+}
+
+
+
+.bordered-div {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}

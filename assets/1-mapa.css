@@ -1,0 +1,124 @@
+/* html, body { */
+/*     overflow: hidden; */
+/*     height: 100%; */
+/*     margin: 0; */
+/*     padding: 0; */
+/* } */
+
+/* Base style for the rounded corner boxes */
+.rounded-box {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    display: block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    margin: 5px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Container for the checklist on hover */
+.rounded-box .dropdown-container {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    margin-top: 5px;
+}
+
+/* Style for the checklist when the box is hovered */
+.rounded-box:hover .dropdown-container {
+    visibility: visible;
+    opacity: 1;
+    width: 50em; /* Adjust the width to be more suitable for checklist text */
+    height: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: rgba(240, 240, 240, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the checklist when the box is hovered */
+/* .rounded-box:hover .dropdown-container .year-range { */
+/*     width: 50em; */
+/* } */
+/* Hide the checklist initially */
+.rounded-box .dropdown {
+    display: none;
+}
+
+/* Show the checklist when the container is visible */
+.rounded-box:hover .dropdown {
+    display: block;
+    max-height: 20em; /* Adjust the max-height as needed */
+    overflow-y: auto;
+}
+
+/* Style for the labels inside the checklist */
+.dropdown label {
+    display: block;
+    margin-bottom: 0.5em;
+    transition: background-color 0.3s ease;
+    padding: 0.2em;
+    text-align: left;
+}
+
+/* Hide the default checkboxes */
+.dropdown .custom-input {
+    /* display: none; */
+    padding: 0.2em;
+}
+
+
+/* Full page map container */
+#map-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Floating header */
+.map-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(240, 240, 240, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    z-index: 20;
+}
+
+/* Floating selectors */
+#selectors {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    z-index: 20;
+    display: block,
+}
+
+/* Floating legend */
+#legend-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(240, 240, 240, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    z-index: 20;
+    overflow-y: auto;
+}

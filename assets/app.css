@@ -1,0 +1,30 @@
+/* General styling */
+.main-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-links {
+    display: flex;
+    flex-direction: column; /* Stack the icons vertically */
+    position: absolute; /* Make the page links container absolute */
+    top: 70px; /* Adjust the position as needed */
+    right: 20px; /* Adjust the position as needed */
+    z-index: 1001; /* Ensure the z-index is higher than the map container */
+    background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Padding inside the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.page-link {
+    position: relative;
+    margin-bottom: 10px; /* Add some space between the icons */
+}
+
+.page-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    cursor: pointer;
+}
