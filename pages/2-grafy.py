@@ -2,6 +2,7 @@ import pandas as pd
 import prince
 import plotly.graph_objects as go
 import plotly.express as px
+import locale
 
 from dash import dcc, html, callback
 import dash
@@ -41,6 +42,9 @@ author_options = [
     {"label": lang, "value": lang} for lang in df["author"].unique() if pd.notna(lang)
 ]
 
+def sort_czech(items, key=lambda x:x):
+    return sorted(items, key=lambda x:locale.strxfrm(key(x)))
+
 layout = html.Div(
     [
         html.Div(
@@ -64,7 +68,7 @@ layout = html.Div(
                     id="printer-dropdown",
                     options=[
                         {"label": printer, "value": printer}
-                        for printer in sorted(df["Printer"].unique())
+                        for printer in sort_czech(df["Printer"].unique())
                     ],
                     value=None,
                     multi=True,
@@ -79,7 +83,7 @@ layout = html.Div(
                     id="dynasty-dropdown",
                     options=[
                         {"label": dynasty, "value": dynasty}
-                        for dynasty in dynasties["Dynastie"].dropna().unique()
+                        for dynasty in sort_czech(dynasties["Dynastie"].dropna().unique())
                     ],
                     value=None,
                     multi=True,
@@ -94,7 +98,7 @@ layout = html.Div(
                     id="author-dropdown",
                     options=[
                         {"label": author, "value": author}
-                        for author in sorted(df["author"].unique())
+                        for author in sort_czech(df["author"].unique())
                     ],
                     value=None,
                     multi=True,
@@ -109,7 +113,7 @@ layout = html.Div(
                     id="language-dropdown",
                     options=[
                         {"label": language, "value": language}
-                        for language in sorted(df["language_cs"].unique())
+                        for language in sort_czech(df["language_cs"].unique())
                     ],
                     value=None,
                     multi=True,
@@ -124,7 +128,7 @@ layout = html.Div(
                     id="genre-dropdown",
                     options=[
                         {"label": genre, "value": genre}
-                        for genre in sorted(df["genre"].unique())
+                        for genre in sort_czech(df["genre"].unique())
                     ],
                     value=None,
                     multi=True,
@@ -139,7 +143,7 @@ layout = html.Div(
                     id="topic-dropdown",
                     options=[
                         {"label": topic, "value": topic}
-                        for topic in sorted(df["topic"].unique())
+                        for topic in sort_czech(df["topic"].unique())
                     ],
                     value=None,
                     multi=True,

@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 import networkx as nx
+import locale
 
 from dash import dcc, html, callback
 import dash
@@ -19,7 +20,6 @@ df["author"] = df["author"].astype(str)
 df["id"] = df["id"].astype(str)
 df["language_cs"] = df["language_cs"].astype(str)
 df["author"] = df["author"].astype(str)
-
 
 MIN_YEAR = df["publishDate"].min()
 MAX_YEAR = df["publishDate"].max()
@@ -40,6 +40,9 @@ topic_options = [
 author_options = [
     {"label": lang, "value": lang} for lang in df["author"].unique() if pd.notna(lang)
 ]
+
+def sort_czech(items, key=lambda x:x):
+    return sorted(items, key=lambda x:locale.strxfrm(key(x)))
 
 layout = html.Div(
     [
@@ -64,7 +67,7 @@ layout = html.Div(
                     id="printer-dropdown",
                     options=[
                         {"label": printer, "value": printer}
-                        for printer in sorted(df["Printer"].unique())
+                        for printer in sort_czech(df["Printer"].unique())
                     ],
                     value=None,
                     multi=True,
@@ -79,7 +82,7 @@ layout = html.Div(
                     id="dynasty-dropdown",
                     options=[
                         {"label": dynasty, "value": dynasty}
-                        for dynasty in dynasties["Dynastie"].dropna().unique()
+                        for dynasty in sort_czech(dynasties["Dynastie"].dropna().unique())
                     ],
                     value=None,
                     multi=True,

@@ -3,6 +3,7 @@ import folium
 from folium.plugins import MarkerCluster
 import numpy as np
 import os
+import locale
 
 
 import dash
@@ -47,6 +48,12 @@ geolocations["publishDateto"] = geolocations["publishDateto"].astype(int)
 
 DEFAULT_LOCATION = [geolocations["Lat"].mean(), geolocations["Lon"].mean()]
 
+locale.setlocale(locale.LC_ALL, 'cs_CZ.UTF-8')
+
+def sort_czech(items, key=lambda x:x):
+    return sorted(items, key=lambda x:locale.strxfrm(key(x)))
+
+
 hex_colors = [
     "#003049",
     "#006494",
@@ -70,8 +77,8 @@ dynasty_colors = {
     for i, dynasty in enumerate(geolocations["Dynastie"].dropna().unique())
 }
 
-if not os.path.exists("mapatiskaři.html"):
-    with open("mapatiskaři.html", "w") as f:
+if not os.path.exists("mapa.html"):
+    with open("mapa.html", "w") as f:
         f.write("")
 
 
@@ -134,8 +141,8 @@ def create_map(geolocations):
             location=[row["Lat"], row["Lon"]], popup=popup, tooltip=tooltip, icon=icon
         ).add_to(marker_cluster)
 
-    mymap.save("mapatiskaři.html")
-    return open("mapatiskaři.html", encoding="UTF-8").read()
+    mymap.save("mapa.html")
+    return open("mapa.html", encoding="UTF-8").read()
 
 
 layout = html.Div(
@@ -163,9 +170,9 @@ layout = html.Div(
                                             id="printer_dropdown",
                                             options=[
                                                 {"label": printer, "value": printer}
-                                                for printer in geolocations[
+                                                for printer in sort_czech(geolocations[
                                                     "Printer"
-                                                ].unique()
+                                                ].unique())
                                             ],
                                             inputClassName="custom-input",
                                         ),
@@ -189,9 +196,9 @@ layout = html.Div(
                                             id="dynasty_dropdown",
                                             options=[
                                                 {"label": dynasty, "value": dynasty}
-                                                for dynasty in geolocations["Dynastie"]
+                                                for dynasty in sort_czech(geolocations["Dynastie"]
                                                 .dropna()
-                                                .unique()
+                                                .unique())
                                             ],
                                             inputClassName="custom-input",
                                         ),
@@ -237,7 +244,7 @@ layout = html.Div(
             children=[
                 html.Iframe(
                     id="mapa",
-                    srcDoc=open("mapatiskaři.html", "r", encoding="UTF-8").read(),
+                    srcDoc=open("mapa.html", "r", encoding="UTF-8").read(),
                     style={
                         "width": "100%",
                         "height": "100%",
@@ -259,7 +266,7 @@ layout = html.Div(
                             f"{dynasty}",
                             style={"color": color, "font-weight": "bold"},
                         )
-                        for dynasty, color in sorted(
+                        for dynasty, color in sort_czech(
                             dynasty_colors.items(), key=lambda x: x[0]
                         )
                     ]
