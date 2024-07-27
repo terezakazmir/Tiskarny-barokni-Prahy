@@ -1,17 +1,14 @@
-/* Global font style */
 body {
-    font-family: 'Calibri', sans-serif; /* You can change 'Arial' to your preferred font */
+    font-family: 'Calibri', sans-serif;
 }
 
-/* Specific font styles */
 h1 {
-    font-family: 'Georgia', serif; /* Apply a different font to H1 elements */
+    font-family: 'Georgia', serif;
 }
 
 label {
-    font-family: 'Verdana', sans-serif; /* Apply a different font to label elements */
+    font-family: 'Verdana', sans-serif;
 }
-
 
 .bordered-div {
     border: 1px solid black;
