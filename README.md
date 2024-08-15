@@ -5,9 +5,17 @@ Tato interaktivní aplikace vznikla jako součást výzkumné části diplomové
 Otevřete terminál a naklonujte tento repozitář:
 ```bash
 git clone https://github.com/terezakazmir/Tiskarny-barokni-Prahy.git
+cd Tiskarny-barokni-Prahy
 ```
 Vytvořte a aktivujte virtuální prostředí:
-```bash
+
+**`Windows:`**
+```ps1
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+**`Linux:`**
+```ps1
 python -m venv venv
 source venv/bin/activate
 ```
