@@ -9,7 +9,12 @@ cd Tiskarny-barokni-Prahy
 ```
 Vytvořte a aktivujte virtuální prostředí:
 
-**`Windows:`**
+**`Windows (Příkazový řádek):`**
+```ps1
+python -m venv venv
+venv\Scripts\activate
+```
+**`Windows (PowerShell):`**
 ```ps1
 python -m venv venv
 .\venv\Scripts\Activate.ps1
