@@ -7,6 +7,15 @@ Otevřete terminál a naklonujte tento repozitář:
 git clone https://github.com/terezakazmir/Tiskarny-barokni-Prahy.git
 cd Tiskarny-barokni-Prahy
 ```
+Další kroky závisí na tom, zda chcete aplikaci spustit v Dockeru nebo bez něj.
+
+### Docker
+Nainstalujte [Docker Desktop](https://docs.docker.com/desktop/) a spusťte aplikaci pomocí příkazu:
+```bash
+docker compose up
+```
+
+### Lokálni instalace
 Vytvořte a aktivujte virtuální prostředí:
 
 **`Windows (Příkazový řádek):`**
@@ -33,4 +42,16 @@ Spusťte aplikaci:
 ```bash
 python app.py
 ```
-Otevřete zobrazené URL. Standardně bude aplikace běžet na [http://127.0.0.1:8050/](http://127.0.0.1:8050/).
+
+### Zobrazení aplikace
+
+V obou případech se v terminálu zobrazí URL, na které bude aplikace dostupná. Standardně bude aplikace běžet na [http://127.0.0.1:8050/](http://127.0.0.1:8050/).
+
+
+Aplikace dovoluje změnit pouzitý port a hostname pomocí argumentů `--port` a `--host`:
+
+```bash
+python app.py --port 8050 --host 0.0.0.0
+```
+
+Pro změnu portu a hostname při spuštení pomocí `docker compose` upravte sekci `command` v souboru `docker-compose.yaml`.
