@@ -15,7 +15,7 @@ Nainstalujte [Docker Desktop](https://docs.docker.com/desktop/) a spusťte aplik
 docker compose up
 ```
 
-### Lokálni instalace
+### Lokální instalace
 Vytvořte a aktivujte virtuální prostředí:
 
 **`Windows (Příkazový řádek):`**
@@ -48,7 +48,7 @@ python app.py
 V obou případech se v terminálu zobrazí URL, na které bude aplikace dostupná. Standardně bude aplikace běžet na [http://127.0.0.1:8050/](http://127.0.0.1:8050/).
 
 
-Aplikace dovoluje změnit pouzitý port a hostname pomocí argumentů `--port` a `--host`:
+Aplikace dovoluje změnit použitý port a hostname pomocí argumentů `--port` a `--host`:
 
 ```bash
 python app.py --port 8050 --host 0.0.0.0
