@@ -1,6 +1,8 @@
 # Tiskárny barokní Prahy
 Tato interaktivní aplikace vznikla jako součást výzkumné části diplomové práce s názvem "Pražský barokní knihtisk pohledem digital humanities: efektivní využití dat o tiskařské produkci na území Prahy mezi lety 1621–1748". Obsahuje mapový nástroj určený k vizualizaci a analýze umístění pražských barokních tiskáren a grafový nástroj, který je možné využít k analýze dat o vydáních v Praze mezi lety 1621–1748 získaných z Bibliografické databáze bohemikálních tisků, rukopisů a moderní literatury.
 
+Odkaz na diplomovou práci: http://hdl.handle.net/20.500.11956/193319
+
 ## Instrukce ke spuštění aplikace
 Otevřete terminál a naklonujte tento repozitář:
 ```bash
