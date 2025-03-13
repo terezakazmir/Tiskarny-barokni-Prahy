@@ -48,7 +48,7 @@ parser.add_argument("--port", type=int, default=8050, help="Port to run the app 
 parser.add_argument(
     "--host", type=str, default="0.0.0.0", help="Host to run the app on"
 )
-parser.add_argument("--threads", type=int, help="Number of threads to use")
+parser.add_argument("--threads", type=int, default=6, help="Number of threads to use")
 
 args = parser.parse_args()
 
