@@ -4,3 +4,4 @@ dash-bootstrap-components>=1.6.0
 folium>=0.17.0
 prince>=0.13.0
 networkx>=3.0.0
+waitress>=3.0.0
