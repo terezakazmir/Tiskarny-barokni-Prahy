@@ -54,5 +54,6 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     print("* Serving Flask app")
+    print(f"* Running on http://127.0.0.1:8050/ (Press CTRL+C to quit)")
     print(f"* Running on http://{args.host}:{args.port} (Press CTRL+C to quit)")
     waitress.serve(app.server, host=args.host, port=args.port, threads=args.threads)
