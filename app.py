@@ -2,6 +2,7 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 import argparse
+import waitress
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], use_pages=True)
 
@@ -47,9 +48,11 @@ parser.add_argument("--port", type=int, default=8050, help="Port to run the app 
 parser.add_argument(
     "--host", type=str, default="0.0.0.0", help="Host to run the app on"
 )
-parser.add_argument("--debug", action="store_true", help="Run the app in debug mode")
+parser.add_argument("--threads", type=int, default=6, help="Number of threads to use")
 
 args = parser.parse_args()
 
 if __name__ == "__main__":
-    app.run(host=args.host, port=str(args.port), debug=args.debug)
+    print("* Serving Flask app")
+    print(f"* Running on http://{args.host}:{args.port} (Press CTRL+C to quit)")
+    waitress.serve(app.server, host=args.host, port=args.port, threads=args.threads)
