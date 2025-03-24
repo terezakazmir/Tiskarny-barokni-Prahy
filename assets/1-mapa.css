@@ -1,17 +1,18 @@
 .rounded-box {
     width: auto;
-    padding: 10px 20px;
-    border-radius: 15px;
-    background-color: #f0f0f0;
+    padding: 0.8vw 0.8vw;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
     display: block;
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
-    margin: 5px;
+    margin: 1vw;
     font-family: Georgia, serif;
-    font-size: 16px;
+    font-size: clamp(12px, 2vw, 14px);
     text-align: center;
 }
+
 
 .rounded-box .dropdown-container {
     visibility: hidden;
@@ -29,13 +30,13 @@
 .rounded-box:hover .dropdown-container {
     visibility: visible;
     opacity: 1;
-    width: 50em; 
+    width: 60em;
     height: auto;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 15px;
     padding: 1em;
-    background-color: rgba(240, 240, 240, 0.95);
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -45,7 +46,7 @@
 
 .rounded-box:hover .dropdown {
     display: block;
-    max-height: 20em; 
+    max-height: 20em;
     overflow-y: auto;
 }
 
@@ -72,12 +73,14 @@
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(240, 240, 240, 0.8);
-    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5vw 1vw;
+    transition: all 0.3s ease;
     border-radius: 15px;
     font-family: Georgia, serif;
-    font-size: 30px;
+    font-size: clamp(14px, 3vw, 30px);
     z-index: 20;
+    white-space: nowrap;
 }
 
 #selectors {
@@ -92,9 +95,23 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: rgba(240, 240, 240, 0.8);
-    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5vw 1vw;
+    transition: all 0.3s ease;
     border-radius: 15px;
     z-index: 20;
     overflow-y: auto;
+}
+
+#toggle-legend-button {
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 30;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    cursor: pointer
 }
