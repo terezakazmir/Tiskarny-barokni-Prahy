@@ -5,25 +5,29 @@
 
 .page-links {
     display: flex;
-    flex-direction: column; 
-    position: absolute; 
-    top: 70px; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 70px;
     right: 20px;
-    z-index: 1001; 
-    background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 10px; 
-    padding: 10px; 
+    z-index: 1001;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .page-link {
     position: relative;
+    display: inline-block;
     margin-bottom: 10px;
 }
 
 .page-icon {
-    width: 40px;
-    height: 40px;
+    width: clamp(20px, 5vw, 40px);
+    height: auto;
+    transition: all 0.3s ease;
     object-fit: contain;
     cursor: pointer;
 }
