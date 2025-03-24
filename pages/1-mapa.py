@@ -269,13 +269,13 @@ layout = html.Div(
             children=[
                 html.H3(
                     "Tiskařské rodiny a dynastie",
-                    style={"font-weight": "bold", "font-size": "18px"},
+                    style={"font-weight": "bold", "font-size": "clamp(14px, 2vw, 18px)"},
                 ),
                 html.Ul(
                     [
                         html.Li(
                             f"{dynasty}",
-                            style={"color": color, "font-weight": "bold"},
+                            style={"color": color, "font-weight": "bold", "font-size": "clamp(12px, 2vw, 14px)"},
                         )
                         for dynasty, color in sort_czech(
                             dynasty_colors.items(), key=lambda x: x[0]
