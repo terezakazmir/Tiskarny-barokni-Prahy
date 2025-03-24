@@ -8,7 +8,7 @@ import locale
 
 import dash
 from dash import dcc, html, callback
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 dash.register_page(__name__)
 
@@ -88,7 +88,14 @@ def create_map(geolocations):
     else:
         location = [geolocations["Lat"].mean(), geolocations["Lon"].mean()]
 
-    mymap = folium.Map(location=location, zoom_start=15)
+    mymap = folium.Map(location=location, zoom_start=15, tiles=None)
+    
+    folium.TileLayer(
+        tiles='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        name='CartoDB Voyager',
+        max_zoom=19
+    ).add_to(mymap)
 
     cluster_radius = 10
 
@@ -253,6 +260,10 @@ layout = html.Div(
                 )
             ],
         ),
+        html.Button(
+            "Zobrazit / skrýt",
+            id="toggle-legend-button"
+        ),
         html.Div(
             id="legend-container",
             children=[
@@ -311,3 +322,19 @@ def listen_events(
         subframe = subframe[subframe["Dynastie"].isin(dynasties)]
 
     return create_map(subframe)
+
+@callback(
+    Output("legend-container", "style"),
+    Input("toggle-legend-button", "n_clicks"),
+    State("legend-container", "style")
+)
+def toggle_legend(n_clicks, current_style):
+    if n_clicks is None:
+        return {"display": "block"}
+
+    if current_style.get("display") == "none":
+        current_style["display"] = "block"
+    else:
+        current_style["display"] = "none"
+
+    return current_style
